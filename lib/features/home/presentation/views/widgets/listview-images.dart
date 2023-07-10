@@ -1,4 +1,4 @@
-import 'package:booklyapp/features/home/presentation/views/widgets/custom_listview_imageItem.dart';
+import 'package:booklyapp/features/home/presentation/views/widgets/feture_listview_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -13,6 +13,9 @@ class ListViewImages extends StatelessWidget {
             itemCount: 15,
             scrollDirection: Axis.horizontal,
             clipBehavior: Clip.none,
-            itemBuilder: (c, index) => const CustomListViewImageItem()));
+            itemBuilder: (c, index) => const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: CustomListViewImageItem(),
+                )));
   }
 }
