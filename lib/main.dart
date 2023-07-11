@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get_navigation/get_navigation.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'constants.dart';
-import 'features/splash/presentation/view/splash_view.dart';
+import 'core/app_router.dart';
 
 void main() {
   runApp(const BooklyApp());
@@ -16,14 +15,14 @@ class BooklyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-        designSize: Size(375, 812),
-        builder: (context, child) => GetMaterialApp(
+        designSize: const Size(375, 812),
+        builder: (context, child) => MaterialApp.router(
+              routerConfig: AppRouter.route,
               debugShowCheckedModeBanner: false,
               theme: ThemeData.dark().copyWith(
                   scaffoldBackgroundColor: kprimaryColor,
                   textTheme: GoogleFonts.montserratTextTheme(
                       ThemeData.dark().textTheme)),
-              home: const SplashView(),
             ));
   }
 }
