@@ -8,7 +8,7 @@ class DetailsCustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: 48.h, bottom: 30.h),
+      padding: EdgeInsets.only(top: 38.h, bottom: 20.h),
       child: Row(
         children: [
           IconButton(onPressed: () {}, icon: const Icon(Icons.close)),

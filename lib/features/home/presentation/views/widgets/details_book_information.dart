@@ -26,7 +26,7 @@ class DetailsBookInformation extends StatelessWidget {
           style: Styles.textStyle18,
         ),
         SizedBox(
-          height: 17.h,
+          height: 10.h,
         ),
         const FeturedRatingItem(),
       ],

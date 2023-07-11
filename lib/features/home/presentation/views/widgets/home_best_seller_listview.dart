@@ -12,7 +12,7 @@ class HomeBestSellerListView extends StatelessWidget {
           padding: EdgeInsets.zero,
           physics: const NeverScrollableScrollPhysics(),
           itemCount: 10,
-          itemBuilder: (_, index) => HomeBestSellerLiseViewItem()),
+          itemBuilder: (_, index) => const HomeBestSellerLiseViewItem()),
     );
   }
 }

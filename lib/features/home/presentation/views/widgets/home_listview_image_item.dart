@@ -11,7 +11,7 @@ class HomeListViewImageItem extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
-            image: DecorationImage(
+            image: const DecorationImage(
                 fit: BoxFit.fill, image: AssetImage(AssetsPath.testBook))),
       ),
     );
