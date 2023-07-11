@@ -1,13 +1,12 @@
 import 'package:booklyapp/constants.dart';
 import 'package:booklyapp/core/assets.dart';
 import 'package:booklyapp/core/styles.dart';
-import 'package:booklyapp/features/home/presentation/views/widgets/home_best_seller_rating_listview_item.dart';
+import 'package:booklyapp/features/home/presentation/views/widgets/fetured_rating_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class BestSellerLiseViewItem extends StatelessWidget {
-  BestSellerLiseViewItem({super.key});
+class HomeBestSellerLiseViewItem extends StatelessWidget {
+  HomeBestSellerLiseViewItem({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +39,8 @@ class BestSellerLiseViewItem extends StatelessWidget {
                       child: Text(
                           overflow: TextOverflow.ellipsis,
                           maxLines: 2,
-                          style: Styles.textStyle20,
+                          style: Styles.textStyle20
+                              .copyWith(fontFamily: Styles.kgtsFont),
                           'Hary Potter And The goblet Of Fire'),
                     ),
                     SizedBox(
@@ -63,7 +63,7 @@ class BestSellerLiseViewItem extends StatelessWidget {
                                 .copyWith(fontWeight: FontWeight.bold),
                           ),
                           const Spacer(),
-                          const HomeBestSellerRatingListviewItem()
+                          const FeturedRatingItem()
                         ],
                       ),
                     )
