@@ -21,15 +21,15 @@ class HomeViewBody extends StatelessWidget {
                 child: const HomeCustomizeAppBar(),
               ),
               const HomeListViewImages(),
+              SizedBox(
+                height: 30.h,
+              ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 25.w),
                 child: Text(
                   'Best Seller',
                   style: Styles.textStyle18,
                 ),
-              ),
-              SizedBox(
-                height: 51.h,
               ),
               SizedBox(
                 height: 20.h,

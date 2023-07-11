@@ -5,15 +5,15 @@ import 'package:booklyapp/features/home/presentation/views/widgets/fetured_ratin
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class HomeBestSellerLiseViewItem extends StatelessWidget {
-  const HomeBestSellerLiseViewItem({super.key});
+class FeturedLiseViewItem extends StatelessWidget {
+  const FeturedLiseViewItem({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 10.h),
+      padding: EdgeInsets.symmetric(vertical: 5.h),
       child: SizedBox(
-          height: 120.h,
+          height: 150.h,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -59,7 +59,7 @@ class HomeBestSellerLiseViewItem extends StatelessWidget {
                         children: [
                           Text(
                             '99.9\$',
-                            style: Styles.textStyle20
+                            style: Styles.textStyle14
                                 .copyWith(fontWeight: FontWeight.bold),
                           ),
                           const Spacer(),
