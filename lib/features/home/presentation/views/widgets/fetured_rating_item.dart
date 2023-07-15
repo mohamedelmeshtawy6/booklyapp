@@ -13,6 +13,7 @@ class FeturedRatingItem extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         const Icon(
+          size: 21,
           FontAwesomeIcons.solidStar,
           color: Colors.yellow,
         ),

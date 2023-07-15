@@ -1,13 +1,19 @@
-import 'package:booklyapp/constants.dart';
-import 'package:booklyapp/core/assets.dart';
-import 'package:booklyapp/core/styles.dart';
-import 'package:booklyapp/features/home/presentation/views/widgets/fetured_rating_item.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class FeturedLiseViewItem extends StatelessWidget {
-  const FeturedLiseViewItem({super.key});
+import 'package:booklyapp/constants.dart';
+import 'package:booklyapp/core/assets.dart';
+import 'package:booklyapp/core/styles.dart';
+import 'package:booklyapp/features/home/data/model/book_model/book_model.dart';
+import 'package:booklyapp/features/home/presentation/views/widgets/fetured_rating_item.dart';
 
+class FeturedLiseViewItem extends StatelessWidget {
+  final BookModel? books;
+  const FeturedLiseViewItem({
+    Key? key,
+    this.books,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -22,9 +28,13 @@ class FeturedLiseViewItem extends StatelessWidget {
                 child: Container(
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      image: const DecorationImage(
+                      image: DecorationImage(
                           fit: BoxFit.fill,
-                          image: AssetImage(AssetsPath.testBook))),
+                          image: books == null
+                              ? AssetImage(AssetsPath.testBook)
+                              : NetworkImage(
+                                      books!.volumeInfo!.imageLinks!.thumbnail!)
+                                  as ImageProvider)),
                 ),
               ),
               SizedBox(
@@ -41,13 +51,13 @@ class FeturedLiseViewItem extends StatelessWidget {
                           maxLines: 2,
                           style: Styles.textStyle20
                               .copyWith(fontFamily: Styles.kgtsFont),
-                          'Hary Potter And The goblet Of Fire'),
+                          '${books!.volumeInfo!.title}'),
                     ),
                     SizedBox(
                       height: 3.h,
                     ),
                     Text(
-                      'J.k Rolling',
+                      '${books!.volumeInfo!.authors![0]}',
                       style: Styles.textStyle14.copyWith(
                           color: kgreyColor, fontWeight: FontWeight.normal),
                     ),

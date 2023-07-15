@@ -34,7 +34,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
 
   void initSliderAnimation() {
     animationController =
-        AnimationController(vsync: this, duration: const Duration(seconds: 2));
+        AnimationController(vsync: this, duration: const Duration(seconds: 1));
     animation = Tween(begin: const Offset(0, 30), end: const Offset(0, 0))
         .animate(animationController);
 

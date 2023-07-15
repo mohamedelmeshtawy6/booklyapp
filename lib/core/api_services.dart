@@ -3,7 +3,7 @@ import 'package:booklyapp/constants.dart';
 import 'package:dio/dio.dart';
 
 class ApiServices {
-  Dio dio;
+  final Dio dio;
   ApiServices({
     required this.dio,
   });

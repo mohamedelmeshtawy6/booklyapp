@@ -1,18 +1,53 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:dartz/dartz.dart';
+
+import 'package:booklyapp/core/api_services.dart';
 import 'package:booklyapp/errors/failure.dart';
 import 'package:booklyapp/features/home/data/model/book_model/book_model.dart';
 import 'package:booklyapp/features/home/data/repo/home_repo.dart';
-import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 
-class HomePepoImplementation implements HomeRepo {
+class HomeRepoImplementation implements HomeRepo {
+  ApiServices apiServices;
+  HomeRepoImplementation({
+    required this.apiServices,
+  });
   @override
-  Future<Either<Failure, List<BookModel>>> fetchBestsellBooks() {
-    // TODO: implement fetchBestsellBooks
-    throw UnimplementedError();
+  Future<Either<Failure, List<BookModel>>> fetchNewestBooks() async {
+    try {
+      final data = await apiServices.getServices(
+          endPoint:
+              "volumes?Filtering=free-ebooks&Sorting=newest &q=subject:programming");
+
+      List<BookModel> newsBooks = [];
+      for (var item in data['items']) {
+        newsBooks.add(BookModel.fromJson(item));
+      }
+      return right(newsBooks);
+    } catch (e) {
+      if (e is DioException) {
+        return Left(ServerFailure.fromDioError(e));
+      }
+      return Left(ServerFailure(e.toString()));
+    }
   }
 
   @override
-  Future<Either<Failure, List<BookModel>>> fetchImageBooks() {
-    // TODO: implement fetchImageBooks
-    throw UnimplementedError();
+  Future<Either<Failure, List<BookModel>>> fetchImageBooks() async {
+    try {
+      final data = await apiServices.getServices(
+          endPoint: "volumes?Filtering=free-ebooks&q=subject:programming");
+
+      List<BookModel> newsBooks = [];
+      for (var item in data['items']) {
+        newsBooks.add(BookModel.fromJson(item));
+      }
+      return right(newsBooks);
+    } catch (e) {
+      if (e is DioException) {
+        return Left(ServerFailure.fromDioError(e));
+      }
+      return Left(ServerFailure(e.toString()));
+    }
   }
 }

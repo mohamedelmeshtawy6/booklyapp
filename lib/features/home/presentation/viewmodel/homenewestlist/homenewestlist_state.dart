@@ -13,7 +13,7 @@ class HomeNewestListInitial extends HomeNewestListState {}
 class HomeNewestListLoading extends HomeNewestListState {}
 
 class HomeNewestListSuccess extends HomeNewestListState {
-  final List<BookModel> books;
+  final List<BookModel>? books;
 
   const HomeNewestListSuccess(this.books);
 }
