@@ -3,7 +3,7 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
 import 'package:booklyapp/features/home/data/model/book_model/book_model.dart';
-import 'package:booklyapp/features/home/data/repo/home_repo.dart';
+import 'package:booklyapp/features/home/data/repo/home_detail_repo.dart';
 
 part 'homenewestlist_state.dart';
 
@@ -12,7 +12,7 @@ class HomeNewestListCubit extends Cubit<HomeNewestListState> {
     this.homeRepo,
   ) : super(HomeNewestListInitial());
 
-  final HomeRepo homeRepo;
+  final HomeDetailRepo homeRepo;
 
   Future<void> fetchNewestBook() async {
     emit(HomeNewestListLoading());

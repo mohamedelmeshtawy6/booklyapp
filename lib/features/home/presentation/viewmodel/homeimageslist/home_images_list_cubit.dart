@@ -3,7 +3,7 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
 import '../../../data/model/book_model/book_model.dart';
-import '../../../data/repo/home_repo.dart';
+import '../../../data/repo/home_detail_repo.dart';
 
 part 'home_images_list_state.dart';
 
@@ -12,7 +12,7 @@ class HomeImagesListCubit extends Cubit<HomeImagesListState> {
     this.homeRepo,
   ) : super(HomeImagesListInitial());
 
-  final HomeRepo homeRepo;
+  final HomeDetailRepo homeRepo;
 
   Future<void> fetchImageBook() async {
     emit(HomeImagesListLoading());

@@ -37,7 +37,7 @@ class DetailsViewBody extends StatelessWidget {
           Align(
             alignment: Alignment.centerLeft,
             child: Text(
-              'You can also like',
+              'You can See Similar like',
               style: Styles.textStyle14,
             ),
           ),
