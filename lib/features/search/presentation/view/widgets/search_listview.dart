@@ -1,4 +1,4 @@
-import 'package:booklyapp/features/home/presentation/views/widgets/fetured_listview_item.dart';
+import 'package:booklyapp/features/home/presentation/views/widgets/home_newest_item.dart';
 import 'package:flutter/material.dart';
 
 class SearchListView extends StatelessWidget {
@@ -6,13 +6,8 @@ class SearchListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView.builder(
-          // shrinkWrap: true,
-          padding: EdgeInsets.zero,
-          physics: const NeverScrollableScrollPhysics(),
-          itemCount: 10,
-          itemBuilder: (_, index) => const FeturedLiseViewItem()),
+    return const Center(
+      child: Text('later'),
     );
   }
 }

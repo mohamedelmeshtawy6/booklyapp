@@ -1,11 +1,15 @@
-import 'package:booklyapp/constants.dart';
-import 'package:booklyapp/core/styles.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import 'package:booklyapp/constants.dart';
+import 'package:booklyapp/core/styles.dart';
+
 class FeturedRatingItem extends StatelessWidget {
-  const FeturedRatingItem({super.key});
+  const FeturedRatingItem({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

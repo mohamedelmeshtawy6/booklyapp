@@ -1,11 +1,18 @@
-import 'package:booklyapp/core/styles.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class DetailsButtonsAction extends StatelessWidget {
-  const DetailsButtonsAction({super.key});
+import 'package:booklyapp/core/styles.dart';
 
+import '../../../data/model/book_model/book_model.dart';
+
+class DetailsButtonsAction extends StatelessWidget {
+  const DetailsButtonsAction({
+    Key? key,
+    required this.booModel,
+  }) : super(key: key);
+  final BookModel booModel;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -22,7 +29,7 @@ class DetailsButtonsAction extends StatelessWidget {
 
               onPressed: () {},
               child: Text(
-                '99.9 E',
+                'Free',
                 style: Styles.textStyle16
                     .copyWith(color: Colors.black, fontWeight: FontWeight.bold),
               ),

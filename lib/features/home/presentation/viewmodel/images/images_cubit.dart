@@ -5,23 +5,23 @@ import 'package:equatable/equatable.dart';
 import '../../../data/model/book_model/book_model.dart';
 import '../../../data/repo/home_detail_repo.dart';
 
-part 'home_images_list_state.dart';
+part 'images_state.dart';
 
-class HomeImagesListCubit extends Cubit<HomeImagesListState> {
-  HomeImagesListCubit(
+class ImagesCubit extends Cubit<ImagesState> {
+  ImagesCubit(
     this.homeRepo,
-  ) : super(HomeImagesListInitial());
+  ) : super(ImagesInitial());
 
   final HomeDetailRepo homeRepo;
 
   Future<void> fetchImageBook() async {
-    emit(HomeImagesListLoading());
+    emit(ImagesLoading());
     var data = await homeRepo.fetchImageBooks();
 
     data.fold((l) {
-      emit(HomeImagesListFaile(error: l.errMessage));
+      emit(ImagesFaile(error: l.errMessage));
     }, (r) {
-      emit(HomeImagesListSuccess(r));
+      emit(ImagesSuccess(r));
     });
   }
 }

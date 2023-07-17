@@ -55,8 +55,8 @@ class HomeDetailRepoImplementation implements HomeDetailRepo {
   Future<Either<Failure, List<BookModel>>> fetchSimilarBooks(
       {required String category}) async {
     try {
-      final data =
-          await apiServices.getServices(endPoint: "volumes?q=$category");
+      final data = await apiServices.getServices(
+          endPoint: "volumes?Sorting=newest&q=$category");
 
       List<BookModel> newsBooks = [];
       for (var item in data['items']) {

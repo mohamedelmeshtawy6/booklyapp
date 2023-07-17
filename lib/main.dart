@@ -1,5 +1,4 @@
 import 'package:booklyapp/core/api_services.dart';
-import 'package:booklyapp/features/home/presentation/viewmodel/homeimageslist/home_images_list_cubit.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,7 +9,8 @@ import 'constants.dart';
 import 'core/app_router.dart';
 import 'core/service_locator.dart';
 import 'features/home/data/repo/home_detail_repo_implementation.dart';
-import 'features/home/presentation/viewmodel/homenewestlist/homenewestlist_cubit.dart';
+import 'features/home/presentation/viewmodel/images/images_cubit.dart';
+import 'features/home/presentation/viewmodel/newests/newest_cubit.dart';
 
 void main() {
   setup();
@@ -26,10 +26,10 @@ class BooklyApp extends StatelessWidget {
       providers: [
         BlocProvider(
             create: (context) =>
-                HomeNewestListCubit(getIt.get<HomeDetailRepoImplementation>())
+                NewestCubit(getIt.get<HomeDetailRepoImplementation>())
                   ..fetchNewestBook()),
         BlocProvider(
-          create: (context) => HomeImagesListCubit(HomeDetailRepoImplementation(
+          create: (context) => ImagesCubit(HomeDetailRepoImplementation(
               apiServices: ApiServices(dio: Dio())))
             ..fetchImageBook(),
         )

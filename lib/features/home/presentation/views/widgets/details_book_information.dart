@@ -1,11 +1,18 @@
-import 'package:booklyapp/core/styles.dart';
-import 'package:booklyapp/features/home/presentation/views/widgets/fetured_rating_item.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class DetailsBookInformation extends StatelessWidget {
-  const DetailsBookInformation({super.key});
+import 'package:booklyapp/core/styles.dart';
+import 'package:booklyapp/features/home/presentation/views/widgets/fetured_rating_item.dart';
 
+import '../../../data/model/book_model/book_model.dart';
+
+class DetailsBookInformation extends StatelessWidget {
+  const DetailsBookInformation({
+    Key? key,
+    required this.book,
+  }) : super(key: key);
+  final BookModel book;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -14,7 +21,7 @@ class DetailsBookInformation extends StatelessWidget {
           child: Text(
             overflow: TextOverflow.ellipsis,
             maxLines: 2,
-            'The Jungle Book',
+            '${book.volumeInfo?.title}',
             style: Styles.textStyle30,
           ),
         ),
@@ -22,7 +29,7 @@ class DetailsBookInformation extends StatelessWidget {
           height: 8.h,
         ),
         Text(
-          'Rudyard Kipling',
+          '${book.volumeInfo?.authors?[0]}',
           style: Styles.textStyle18,
         ),
         SizedBox(

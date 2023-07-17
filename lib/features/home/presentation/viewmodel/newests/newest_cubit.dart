@@ -5,23 +5,23 @@ import 'package:equatable/equatable.dart';
 import 'package:booklyapp/features/home/data/model/book_model/book_model.dart';
 import 'package:booklyapp/features/home/data/repo/home_detail_repo.dart';
 
-part 'homenewestlist_state.dart';
+part 'newest_state.dart';
 
-class HomeNewestListCubit extends Cubit<HomeNewestListState> {
-  HomeNewestListCubit(
+class NewestCubit extends Cubit<NewestState> {
+  NewestCubit(
     this.homeRepo,
-  ) : super(HomeNewestListInitial());
+  ) : super(NewestInitial());
 
   final HomeDetailRepo homeRepo;
 
   Future<void> fetchNewestBook() async {
-    emit(HomeNewestListLoading());
+    emit(NewestLoading());
     var data = await homeRepo.fetchNewestBooks();
 
     data.fold((l) {
-      emit(HomeNewestListFaile(error: l.errMessage));
+      emit(NewestFaile(error: l.errMessage));
     }, (r) {
-      emit(HomeNewestListSuccess(r));
+      emit(NewestSuccess(books: r));
     });
   }
 }
