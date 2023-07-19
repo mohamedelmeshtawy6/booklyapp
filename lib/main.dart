@@ -7,13 +7,17 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'constants.dart';
 import 'core/app_router.dart';
+import 'core/bloc_obseve.dart';
 import 'core/service_locator.dart';
 import 'features/home/data/repo/home_detail_repo_implementation.dart';
+import 'features/home/presentation/viewmodel/details/details_cubit.dart';
 import 'features/home/presentation/viewmodel/images/images_cubit.dart';
 import 'features/home/presentation/viewmodel/newests/newest_cubit.dart';
 
 void main() {
   setup();
+  Bloc.observer = BlocObserve();
+
   runApp(const BooklyApp());
 }
 
@@ -28,6 +32,7 @@ class BooklyApp extends StatelessWidget {
             create: (context) =>
                 NewestCubit(getIt.get<HomeDetailRepoImplementation>())
                   ..fetchNewestBook()),
+        BlocProvider(create: (context) => DetailsCubit()),
         BlocProvider(
           create: (context) => ImagesCubit(HomeDetailRepoImplementation(
               apiServices: ApiServices(dio: Dio())))

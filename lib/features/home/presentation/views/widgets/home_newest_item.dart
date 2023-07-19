@@ -52,7 +52,7 @@ class HomeNewestItem extends StatelessWidget {
                       SizedBox(
                         height: 3.h,
                       ),
-                      book.volumeInfo!.authors?[0] != null
+                      book.volumeInfo!.authors!.isNotEmpty
                           ? Text(
                               ' ${book.volumeInfo!.authors![0]} ',
                               style: Styles.textStyle14.copyWith(
